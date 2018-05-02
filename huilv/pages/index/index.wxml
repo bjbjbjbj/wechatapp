@@ -1,0 +1,88 @@
+<!--index.wxml-->
+<view class="Page">
+ <view class="date">
+  <picker end="{{today}}" mode="date" value="{{date}}" bindchange="bindDateChange">
+    <view class="date_text">
+      {{date}}
+      <image style='width:20rpx;height:20rpx' src='../../image/soccer_icon_down_n.png'/>
+    </view>
+  </picker>
+</view> 
+ <!-- <block wx:for="{{logs}}" wx:for-item="log" wx:key="index">
+<view class="section">
+  <input placeholder="名字" value="{{log['name']}}"/>
+</view>
+<view class="section">
+  <input type='digit' placeholder="价格" value="{{log['price']}}"/>
+</view>
+<view class="contry">
+  <picker data-id="{{index}}" bindchange="bindPickerChange" value="{{log['type']}}" range="{{array}}">
+    <view class="picker">
+      {{objectArray[log['type']]['name']}}
+    </view>
+  </picker>
+</view>
+<view class="section">
+  <picker mode="date" value="{{log['date']}}" bindchange="bindDateChange">
+    <view class="picker">
+      {{log['date']}}
+    </view>
+  </picker>
+</view>
+<button data-id="{{index}}" class='button' size='mini' bindtap="bindClickDel">删除</button>
+</block>
+<view class="section">
+  <input placeholder="名字"/>
+</view>
+<view class="section">
+  <input placeholder="价格"/>
+</view>
+<view class="contry">
+  <picker data-id="{{index}}" bindchange="bindPickerChange" value="0" range="{{array}}">
+    <view class="picker">
+      {{objectArray[0]['name']}}
+    </view>
+  </picker>
+</view>
+<view class="section">
+  <picker mode="date" value="2018-04-24" bindchange="bindDateChange">
+    <view class="picker">
+      2018-04-24
+    </view>
+  </picker>
+</view>
+<button data-id="{{index}}" class='button' size='mini' bindtap="bindClickAdd">添加</button> -->
+<view class='bg'>
+<view class="contry">
+  <picker data-key='contryF' bindchange="bindPickerChange" value="{{contryF}}" range="{{objectArray}}" range-key="name">
+  <view class="first">
+    <view class="picker">
+      {{objectArray[contryF]['name']}}
+      <image style='margin-top:30rpx;width:20rpx;height:20rpx;float:right' src='../../image/soccer_icon_down_n.png'/>
+    </view>
+    <view class="picker">
+      {{objectArray[contryF]['id']}}
+    </view>
+    </view>
+  </picker>
+</view>
+<input bindinput="bindPriceInput" class='input' type='digit' placeholder="价格" value='{{priceF}}'/>
+</view>
+<view class='bg'>
+<view class="contry">
+  <picker data-key='contryT' bindchange="bindPickerChange" value="{{contryT}}" range="{{objectArray}}" range-key="name">
+  <view class="first">
+    <view class="picker">
+      {{objectArray[contryT]['name']}}
+      <image style='margin-top:30rpx;width:20rpx;height:20rpx;float:right' src='../../image/soccer_icon_down_n.png'/>
+    </view>
+    <view class="picker">
+      {{objectArray[contryT]['id']}}
+    </view>
+    </view>
+  </picker>
+</view>
+<input disabled='true' class='input' type='digit' placeholder="价格" value='{{priceT}}'/>
+</view>
+<view style='position:absolute;bottom:10rpx;text-align: center;color:gray;font-size: 20rpx;'>纯个人外出时使用的工具，有功能上的建议可以757350129@qq.com邮件我加上去</view>
+</view> 

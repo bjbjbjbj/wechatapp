@@ -1,0 +1,49 @@
+/**index.wxss**/
+.bg{
+  background-color: white;
+  height: 180rpx;
+  margin-bottom: 10rpx;
+}
+
+.first{
+  /* background-color: blue; */
+  height: 180rpx;
+  margin-left: 20rpx;
+  width: 220rpx;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.picker{
+  /* background-color: yellow; */
+  color: #4f4f4f;
+  /* text-align: center; */
+}
+
+.date{
+  /* background-color: blue; */
+  height: 72rpx; 
+  /* border-style:solid; */
+  border: 0;
+  box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+}
+
+.date_text{
+  font-size: 32rpx;
+  line-height: 72rpx;
+  text-align: center;
+}
+
+.input{
+  float: right;
+  height: 180rpx;
+  /* background-color: yellowgreen; */
+  text-align:right;
+  margin-right: 20rpx;
+}
+
+.contry{
+  float: left;
+}
