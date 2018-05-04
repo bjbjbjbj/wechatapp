@@ -31,8 +31,8 @@ var objectBJ = [
     name: '离岸人民币'
   },
   {
-    id: 'TWD',
-    name: '台币'
+    id:'KRW',
+    name: '韩元'
   },
   {
     id: 'MYR',
@@ -41,6 +41,14 @@ var objectBJ = [
   {
     id: 'EUR',
     name: '欧元'
+  },
+  {
+    id:'MOP',
+    name: '澳门币'
+  },
+  {
+    id: 'TWD',
+    name: '台币'
   },
 ];
 
