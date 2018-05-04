@@ -65,13 +65,42 @@ Page({
   },
 
   onLoad: function () {
+    var cacheF = 2;
+    var cacheT = 3;
+    try {
+      var value = wx.getStorageSync('cache')
+      if (value) {
+        // Do something with return value
+        console.log(value);
+        var tmp = value.split(',');
+        if(tmp.length == 2){
+          cacheF = tmp[0];
+          cacheT = tmp[1];
+        }
+      }
+      else{
+        console.log('no cache');
+      }
+    } catch (e) {
+      // Do something when catch error
+    }
+
     wx.setNavigationBarTitle({
       title: '汇率'
-    })
+    });
+
+    this.setData({
+      contryF: cacheF,
+      contryT: cacheT
+    });
+
     //加载当前汇率
     // queryRequest('USD');
     // queryRequest('JPY');
-    this.queryRequest('HKD','CNY');
+    // wx.showLoading({
+    //   title: '汇率加载中',
+    // });
+    this.queryRequest(objectBJ[cacheF]['id'], objectBJ[cacheT]['id']);
     // this.setData({
     //   rate:0.8
     // });
@@ -98,6 +127,11 @@ Page({
     else {
       keyT = e.detail.value;
     }
+
+    wx.setStorage({
+      key: "cache",
+      data: keyF + ',' + keyT
+    });
 
     this.setData({
       contryF: e.detail.value,
@@ -141,6 +175,7 @@ Page({
 
   //历史汇率请求
   queryHistoryRequest: function (date, keyF, keyT) {
+    wx.showNavigationBarLoading();
     console.log('query his');
     date = date.replace('-', '');
     date = date.replace('-', '');
@@ -156,6 +191,7 @@ Page({
         // "Content-Type":"application/json"
       },
       success: function (res) {
+        wx.hideNavigationBarLoading()
         console.log(res);
         // console.log(that);
         that.setData({
@@ -165,12 +201,18 @@ Page({
       },
       fail: function (err) {
         console.log(err)
+        wx.showToast({
+          title: '数据加载失败',
+          icon: 'none',
+          duration: 2000
+        })
       }
     })
   },
 
   // 汇率请求
   queryRequest: function (keyF, keyT) {
+    wx.showNavigationBarLoading();
     // console.log(keyF,keyT);
     console.log('query');
     var that = this;
@@ -185,6 +227,7 @@ Page({
         // "Content-Type":"application/json"
       },
       success: function (res) {
+        wx.hideNavigationBarLoading()
         console.log(res);
         that.setData({
           rate: res.data.result.rate
@@ -193,6 +236,11 @@ Page({
       },
       fail: function (err) {
         console.log(err)
+        wx.showToast({
+          title: '数据加载失败',
+          icon: 'none',
+          duration: 2000
+        })
       }
 
     })
