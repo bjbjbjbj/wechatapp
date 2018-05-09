@@ -47,3 +47,27 @@
 .contry{
   float: left;
 }
+
+.keybroad{
+  padding: 20rpx 0 0 20rpx;
+  background: #fff;
+  font-size: 0;
+  position: fixed; bottom: 0; left: 0; right: 0;
+}
+.keybroad .item{
+  width: 25%; height: 150rpx;
+  padding: 0 20rpx 20rpx 0;
+  box-sizing: border-box;
+  display: inline-block;
+}
+.keybroad .item .btn{
+  width: 100%; height: 130rpx;
+  border-radius: 8rpx;
+  background: #f1f4f9;
+  font-size: 32rpx; line-height: 130rpx; text-align: center; color: #494949; font-weight: bold;
+}
+
+.keybroad .item .btn_on{
+  /* background: gray;
+  color: white; */
+}
