@@ -23,6 +23,10 @@ var objectBJ = [
     name: '港币'
   },
   {
+    id: 'RUB',
+    name: '俄罗斯卢布'
+  },
+  {
     id: 'CNY',
     name: '人民币'
   },
@@ -64,7 +68,7 @@ Page({
     priceF: null,
     priceT: 0.00,
     contryF: 2,
-    contryT: 3,
+    contryT: 4,
     objectArray: objectBJ,
     index: 0,
     rate: 0,
@@ -74,7 +78,7 @@ Page({
 
   onLoad: function () {
     var cacheF = 2;
-    var cacheT = 3;
+    var cacheT = 4;
     if (offline) {
       this.setData({
         rate: 1,
