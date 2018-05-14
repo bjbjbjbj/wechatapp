@@ -203,9 +203,18 @@ Page({
         wx.hideNavigationBarLoading()
         console.log(res);
         // console.log(that);
-        that.setData({
-          rate: res.data.result.exchange_rate
-        })
+        if (res && res.data && res.data.result && res.data.result.exchange_rate) {
+          that.setData({
+            rate: res.data.result.exchange_rate
+          });
+        }
+        else {
+          wx.showToast({
+            title: '数据加载失败',
+            icon: 'none',
+            duration: 2000
+          })
+        }
         // that.data.rate = res.data.result.rate;
       },
       fail: function (err) {
@@ -238,9 +247,18 @@ Page({
       success: function (res) {
         wx.hideNavigationBarLoading()
         console.log(res);
-        that.setData({
-          rate: res.data.result.rate
-        })
+        if (res && res.data && res.data.result && res.data.result.rate) {
+          that.setData({
+            rate: res.data.result.rate
+          })
+        }
+        else {
+          wx.showToast({
+            title: '数据加载失败',
+            icon: 'none',
+            duration: 2000
+          })
+        }
         // that.data.rate = res.data.result.rate;
       },
       fail: function (err) {
@@ -494,6 +512,12 @@ Page({
         } else {
           b = stack.pop();
           a = stack.pop();
+          if(a == undefined){
+            return NaN;
+          }
+          if (b == undefined) {
+            return NaN;
+          }
           stack.push(cal[v](a, b));
         }
       }
