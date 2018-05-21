@@ -5,56 +5,13 @@ const app = getApp()
 var offline = false;
 
 var util = require('../../utils/util.js');
+var data = app.globalData.countries;
+console.log(data);
 
 var today = util.formatTime(new Date());
 console.log(today);
 
-var objectBJ = [
-  {
-    id: 'USD',
-    name: '美元'
-  },
-  {
-    id: 'JPY',
-    name: '日元'
-  },
-  {
-    id: 'HKD',
-    name: '港币'
-  },
-  {
-    id: 'RUB',
-    name: '俄罗斯卢布'
-  },
-  {
-    id: 'CNY',
-    name: '人民币'
-  },
-  {
-    id: 'CNH',
-    name: '离岸人民币'
-  },
-  {
-    id: 'KRW',
-    name: '韩元'
-  },
-  {
-    id: 'MYR',
-    name: '林吉特'
-  },
-  {
-    id: 'EUR',
-    name: '欧元'
-  },
-  {
-    id: 'MOP',
-    name: '澳门币'
-  },
-  {
-    id: 'TWD',
-    name: '台币'
-  },
-];
+var objectBJ = data;
 
 Page({
   onShareAppMessage: function () {
@@ -67,8 +24,8 @@ Page({
   data: {
     priceF: null,
     priceT: 0.00,
-    contryF: 2,
-    contryT: 4,
+    contryF: 43,
+    contryT: 102,
     objectArray: objectBJ,
     index: 0,
     rate: 0,
@@ -77,15 +34,15 @@ Page({
   },
 
   onLoad: function () {
-    var cacheF = 2;
-    var cacheT = 4;
+    var cacheF = 43;
+    var cacheT = 102;
     if (offline) {
       this.setData({
         rate: 1,
       });
     }
     try {
-      var value = wx.getStorageSync('cache')
+      var value = wx.getStorageSync('cache2')
       if (value) {
         // Do something with return value
         console.log(value);
@@ -121,6 +78,37 @@ Page({
     // console.log(this.express('1+2*4-1+6/3'));
   },
 
+  bindTapPickerF:function(e){
+    wx.navigateTo({
+      'url': '../list/list?isF=1'
+    })
+    return;
+  },
+
+  bindTapPickerT: function (e) {
+    wx.navigateTo({
+      'url': '../list/list?isF=0'
+    })
+    return;
+  },
+
+  pickerChange: function () {
+    var that = this;
+    var keyF = that.data.contryF;
+    var keyT = that.data.contryT;
+
+    wx.setStorage({
+      key: "cache2",
+      data: keyF + ',' + keyT
+    });
+
+    this.setData({
+      contryF: keyF,
+      contryT: keyT
+    });
+    this.queryRequest(objectBJ[keyF]['id'], objectBJ[keyT]['id']);
+  },
+
   bindPickerChange: function (e) {
     // var key = 'HKD'
     // console.log(e.detail.value);
@@ -149,7 +137,6 @@ Page({
     });
 
     this.setData({
-      contryF: e.detail.value,
       priceF: null,
       priceT: 0.00,
       contryF: keyF,
@@ -165,7 +152,6 @@ Page({
     var keyT = that.data.contryT;
 
     this.setData({
-      contryF: e.detail.value,
       priceF: null,
       priceT: 0.00,
       contryF: keyF,
@@ -247,8 +233,24 @@ Page({
       success: function (res) {
         wx.hideNavigationBarLoading()
         console.log(res);
+        var priceF = that.data.priceF == null ? 0 : that.data.priceF;
+        var total = null;
+        console.log(priceF);
+        if (priceF == 0) {
+          total = 0;
+        }
+        else{
+          if (priceF != null)
+            total = that.express(priceF);
+
+          if (total == undefined) {
+            total = 0;
+          }
+        }
+
         if (res && res.data && res.data.result && res.data.result.rate) {
           that.setData({
+            priceT: (res.data.result.rate * total).toFixed(2),
             rate: res.data.result.rate
           })
         }

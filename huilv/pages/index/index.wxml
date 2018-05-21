@@ -10,7 +10,7 @@
 </view>
 <view class='bg'>
 <view class="contry">
-  <picker data-key='contryF' bindchange="bindPickerChange" value="{{contryF}}" range="{{objectArray}}" range-key="name">
+  <picker disabled='true' data-key='contryF' bindtap='bindTapPickerF' bindchange="bindPickerChange" value="{{contryF}}" range="{{objectArray}}" range-key="name">
   <view class="first">
     <view class="picker">
       {{objectArray[contryF]['name']}}
@@ -26,7 +26,7 @@
 </view>
 <view class='bg'>
 <view class="contry">
-  <picker data-key='contryT' bindchange="bindPickerChange" value="{{contryT}}" range="{{objectArray}}" range-key="name">
+  <picker disabled='true' data-key='contryT' bindtap='bindTapPickerT' bindchange="bindPickerChange" value="{{contryT}}" range="{{objectArray}}" range-key="name">
   <view class="first">
     <view class="picker">
       {{objectArray[contryT]['name']}}
