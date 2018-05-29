@@ -458,6 +458,11 @@ Page({
     // 中缀表达式转后缀表达式  
     function c2a(exp) {
       exp = exp.replace(/\s+/g, "").match(/[1-9]\d{0,}(?:\.\d+)?|[\+\-\*\/\%]/g);
+
+      if (exp == undefined) {
+        return [];
+      }
+
       var stack = [], result = [];
       stack.peek = function () {
         return this[this.length - 1];// 弹出但不删除  
@@ -506,6 +511,9 @@ Page({
 
     // 计算结果  
     function cc(queue) {
+      if (queue == undefined){
+        return NaN;
+      }
       var v, a, b, stack = [];
       while (queue.length > 0) {
         var v = queue.shift();
