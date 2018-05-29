@@ -132,7 +132,7 @@ Page({
     }
 
     wx.setStorage({
-      key: "cache",
+      key: "cache2",
       data: keyF + ',' + keyT
     });
 
