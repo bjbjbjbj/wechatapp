@@ -1,0 +1,10 @@
+/* pages/phone/phone.wxss */
+.bg{
+    display: flex;
+    justify-content: center;
+}
+
+.button{
+  width: 200rpx;
+  height: 100rpx;
+}

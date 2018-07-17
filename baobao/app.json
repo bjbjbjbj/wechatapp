@@ -1,0 +1,32 @@
+{
+  "pages":[
+    "pages/phone/phone",
+    "pages/me/me",
+    "pages/index/index",
+    "pages/detail/detail"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "iconPath":"img/index.png",
+      "selectedIconPath": "img/index.png",
+      "text": "首页"
+    }, {
+      "pagePath": "pages/phone/phone",
+      "iconPath": "img/kufu.png",
+      "selectedIconPath": "img/kufu.png",
+      "text": "客服"
+    }, {
+      "pagePath": "pages/me/me",
+      "iconPath": "img/phone.png",
+      "selectedIconPath": "img/phone.png",
+      "text": "电话"
+    }]
+  }
+}
