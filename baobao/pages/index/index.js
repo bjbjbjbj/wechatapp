@@ -13,7 +13,7 @@ Page({
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
-      url: '../detail/detail'
+      url: '/pages/detail/detail?type=company&id=2'
     })
   },
   onLoad: function () {
@@ -58,8 +58,19 @@ Page({
         if (res && res.statusCode && res.statusCode == 200) {
           var data = res.data;
           console.log(data);
+          var bj_banner = new Array();
+          for (var i = 0; i < data.body.bannerList.length ; i++){
+            if (data.body.bannerList[i].imgUrl == 'http://image.zouyh.cn/company/20171211/1512962960152fzy.png')
+            {
+
+            }
+            else{
+              bj_banner.push(data.body.bannerList[i]);
+            }
+          }
+
           that.setData({
-            Focus: data.body.bannerList,
+            Focus: bj_banner,
             articleInfoList: data.body.articleInfoList
           });
         }

@@ -1,3 +1,4 @@
-<view class='bg'>
-<button class="button" open-type="contact">联系客服</button>
+<view>
+  <button open-type="contact" style="background-image:url(../../img/icon2.png);"></button>
+  <view class="prompt">留言客服，我们将尽快回复</view>
 </view>

@@ -1,4 +1,7 @@
 /**app.wxss**/
+page{
+  background: #f3f3f3;
+}
 .container {
   height: 100%;
   display: flex;
@@ -8,4 +11,3 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
-@import "/wxParse/wxParse.wxss";

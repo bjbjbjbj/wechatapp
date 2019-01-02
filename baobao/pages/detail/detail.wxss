@@ -1,1 +1,24 @@
 /* pages/detail/detail.wxss */
+view.title{
+  padding: 20rpx;
+  background: #fff;
+  font-size: 40rpx; line-height: 60rpx; font-weight: bold;
+  position: relative;
+}
+view.title:after{
+  height: 1px;
+  background: #eee;
+  position: absolute; bottom: 0; left: 20rpx; right: 0;
+  display: block;
+  content: '';
+}
+view.content{
+  padding: 20rpx; margin-bottom: 20rpx;
+  background: #fff;
+  font-size: 34rpx; line-height: 50rpx;
+}
+image, img{
+  max-width: 90% !important;
+  margin: 20rpx auto;
+  display: block;
+}

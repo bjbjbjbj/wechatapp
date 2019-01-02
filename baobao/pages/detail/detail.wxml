@@ -1,6 +1,8 @@
-<view>
-<import src="../../wxParse/wxParse.wxml"/> 
-<view class="wxParse">
-    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
-</view>
-</view>
+<import src="../../wxParse/wxParse.wxml"/>
+<view wx:if="{{title}}" class='title'>{{title}}</view>
+<view class="content">
+  <view class="wxParse">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+  </view> 
+  <!-- <rich-text nodes="{{wxParseData:article.nodes}}"></rich-text> -->
+</view> 

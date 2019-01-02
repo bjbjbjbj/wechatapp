@@ -9,7 +9,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
-	"appid": "wx9e11045c36195f54",
+	"appid": "touristappid",
 	"projectname": "baobao",
 	"isGameTourist": false,
 	"condition": {

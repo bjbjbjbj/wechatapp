@@ -8,6 +8,7 @@ var WxParse = require('../../wxParse/wxParse.js');
 Page({
   data: {
     content: "",
+    title: ""
   },
  
   onLoad: function (option) {
@@ -62,6 +63,7 @@ Page({
           console.log(data.body.data.content);
           that.setData({
             content: data.body.data.content,
+            title: data.body.data.title
           });
           
           WxParse.wxParse('article', 'html', data.body.data.content, that, 5);

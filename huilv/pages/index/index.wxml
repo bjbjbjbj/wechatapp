@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="Page">
+<view class="Page"> 
  <view class="date">
   <picker end="{{today}}" mode="date" value="{{date}}" bindchange="bindDateChange">
     <view class="date_text">

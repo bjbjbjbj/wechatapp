@@ -1,0 +1,39 @@
+/* pages/me/me.wxss */
+.bg{
+    display: flex;
+    justify-content: center;
+}
+
+.b_name{
+  background: #fff;
+  display: flex;
+  align-items: center;
+  background-color: blue;
+  flex-direction: column;
+}
+
+.b_name image{
+  background: #f00;
+    height: 260rpx;
+    width: 260rpx;
+    display: flex;
+justify-content: center;
+}
+
+.b_name label.title{
+  background: #f0f;
+    /* height: 50rpx; */
+    width: 100%;
+display: flex;
+padding-bottom: 0;
+justify-content: center;
+}
+
+.b_name label.des{
+  background: #0ff;
+    /* height: 50rpx; */
+    width: 100%;
+display: flex;
+padding-bottom: 0;
+justify-content: center;
+}

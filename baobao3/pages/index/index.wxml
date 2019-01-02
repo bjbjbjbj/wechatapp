@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<view class="">
+<swiper wx:if="{{Focus.length != 0}}" class="focus" autoplay="true" circular="true">
+  <swiper-item wx:for="{{Focus}}" wx:key="focus">
+    <view bindtap='bindViewTap'>
+      <image src="{{item.imgUrl}}" mode="aspectFill" lazy-load="true"></image>
+      <text wx:if="{{item.title}}">{{item.title}}</text>
+    </view>
+    <!-- <view wx:else data-target="{{item.url}}" bindtap="goWebView">
+      <image src="{{item.imgUrl}}" mode="aspectFill" lazy-load="true"></image>
+      <text wx:if="{{item.title}}">{{item.title}}</text>
+    </view> -->
+  </swiper-item>
+</swiper>
+<view class="entra">
+  <navigator url="/pages/detail/detail?type=company&id=2">公司<image src="/images/button_news_n.png" mode="widthFix"></image></navigator>
+  <navigator url="/pages/news/news?label=图片花絮">按钮1<image src="/images/button_picture_n.png"  mode="widthFix"></image></navigator>
+  <navigator url="/pages/news/news?label=媒体评论">按钮1<image src="/images/button_media_n.png"  mode="widthFix"></image></navigator>
+  <navigator url="/pages/news/news?label=赛事分析">按钮1<image src="/images/button_match_n.png"  mode="widthFix"></image></navigator>
+</view>
+<view wx:for="{{articleInfoList}}" wx:for-index="idx" wx:key="itemName.id" wx:for-item="itemName">
+  <navigator url="/pages/detail/detail?type=article&id={{itemName.id}}" class="cell">{{itemName.title}}</navigator>
+  </view>
+  <contact-button 
+  type="default-dark" 
+  size="20"
+  session-from="weapp"
+>
+</contact-button>
+</view>
